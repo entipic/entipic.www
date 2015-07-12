@@ -1,4 +1,22 @@
 extends layouts/root
 
 block content
-  h1 Title
+  .row
+    .col-sm-12.col-md-8
+      h1 A picture for each topic!
+      p Entipic.com is a service offering every subject/topic (i.e., Google, Barack Obama, Paris, etc.) a representative image that can be freely used by any application.
+      br
+      h4 Examples:
+      #examples.well.well-small
+        .row
+          each item in exampleTopics
+            .col-xs-6.col-sm-4
+              .media
+                .media-left
+                  img.media-object(src=entipicUrl(item.englishWikiName, 'en'))
+                .media-body
+                  &larr; 
+                  b
+                    a(href=links.topic(item.uniqueName))= item.englishWikiName
+    .col.sm-12.col-md-4
+      p Aici
