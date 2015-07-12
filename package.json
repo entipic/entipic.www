@@ -1,0 +1,36 @@
+{
+  "name": "entipic.www",
+  "version": "0.0.1",
+  "description": "entipic website: www.entipic.com",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/entipic/entipic.www.git"
+  },
+  "keywords": [
+    "entipic",
+    "www",
+    "website"
+  ],
+  "author": "Dumitru Cantea",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/entipic/entipic.www/issues"
+  },
+  "homepage": "https://github.com/entipic/entipic.www",
+  "dependencies": {
+    "express": "^4.13.0",
+    "body-parser": "^1.13.1",
+    "response-time": "^2.3.1",
+    "dotenv": "^1.2.0",
+    "morgan": "^1.6.0",
+    "request": "^2.58.0",
+    "entipic.core": "^0.0.1",
+    "entipic.data": "^0.0.3",
+    "entipic.url": "^0.0.1"
+  }
+}
