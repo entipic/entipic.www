@@ -1,0 +1,81 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title= (site.head.title || site.title)
+    if (site.head.description)
+      meta(name='description', content=site.head.description)
+    if (site.head.keywords)
+      meta(name='keywords', content=site.head.keywords)
+    block styles
+    link(type='text/css', rel='stylesheet', href=links.assets.css.main({v: project.version}))
+    if (site.head.canonical)
+      link(rel='canonical', href=site.head.canonical)
+
+  body
+    #fb-root
+    #page
+      .container
+        #page-header.clearfix
+          nav.navbar.navbar-default
+            .container-fluid
+              .navbar-header
+                button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+                  span.sr-only Toggle navigation
+                  span.icon-bar
+                  span.icon-bar
+                  span.icon-bar
+                a.navbar-brand(href='#') Project name
+              #navbar.navbar-collapse.collapse
+                ul.nav.navbar-nav
+                  li.active
+                    a(href='#') Home
+                  li
+                    a(href='#') About
+                  li
+                    a(href='#') Contact
+                  li.dropdown
+                    a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
+                      | Dropdown 
+                      span.caret
+                    ul.dropdown-menu
+                      li
+                        a(href='#') Action
+                      li
+                        a(href='#') Another action
+                      li
+                        a(href='#') Something else here
+                      li.divider(role='separator')
+                      li.dropdown-header Nav header
+                      li
+                        a(href='#') Separated link
+                      li
+                        a(href='#') One more separated link
+                ul.nav.navbar-nav.navbar-right
+                  li.active
+                    a(href='./')
+                      | Default 
+                      span.sr-only (current)
+                  li
+                    a(href='../navbar-static-top/') Static top
+                  li
+                    a(href='../navbar-fixed-top/') Fixed top
+              // /.nav-collapse
+            // /.container-fluid
+        #page-content.clearfix
+          block content
+
+
+    script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js')
+    script(type='text/javascript', src=links.assets.js.main({v: project.version}))
+    block scripts
+    
+    script.
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', '#{config.googleAnalyticsId}', 'auto');
+      ga('send', 'pageview');

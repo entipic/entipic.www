@@ -1,4 +1,12 @@
 {
   "home": "/",
-  "topic": "/topic/${0}"
+  "topic": "/topic/${0}",
+  "assets": {
+    "css": {
+      "main": "/main.min.css"
+    },
+    "js": {
+      "main": "/main.min.js"
+    }
+  }
 }

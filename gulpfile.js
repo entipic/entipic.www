@@ -6,6 +6,8 @@ var uglify = require('gulp-uglify');
 var imagemin = require('gulp-imagemin');
 var sourcemaps = require('gulp-sourcemaps');
 var del = require('del');
+var less = require('gulp-less');
+var cssmin = require('gulp-cssmin');
 
 var paths = {
 	scripts: ['node_modules/bootstrap/js/transition.js',
@@ -14,7 +16,8 @@ var paths = {
 		'node_modules/bootstrap/js/tooltip.js',
 		'node_modules/bootstrap/js/modal.js'
 	],
-	images: ['lib/assets/img/*.{gif,jpg,png,svg}']
+	images: ['lib/assets/img/*.{gif,jpg,png,svg}'],
+	styles: ['lib/assets/less/main.less']
 };
 
 // Not all tasks need to use streams
@@ -35,6 +38,16 @@ gulp.task('scripts', ['clean'], function() {
 		.pipe(gulp.dest('lib/public/assets/js'));
 });
 
+gulp.task('styles', ['clean'], function() {
+	return gulp.src(paths.styles)
+		.pipe(less({
+			paths: ['node_modules/bootstrap/less/']
+		}))
+		.pipe(concat('main.min.css'))
+		.pipe(cssmin())
+		.pipe(gulp.dest('lib/public/assets/css'));
+});
+
 // Copy all static images
 gulp.task('images', ['clean'], function() {
 	return gulp.src(paths.images)
@@ -46,4 +59,4 @@ gulp.task('images', ['clean'], function() {
 });
 
 // The default task (called when you run `gulp` from cli)
-gulp.task('default', ['scripts', 'images']);
+gulp.task('default', ['scripts', 'images', 'styles']);
