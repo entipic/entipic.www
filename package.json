@@ -23,14 +23,23 @@
   },
   "homepage": "https://github.com/entipic/entipic.www",
   "dependencies": {
-    "express": "^4.13.0",
     "body-parser": "^1.13.1",
-    "response-time": "^2.3.1",
     "dotenv": "^1.2.0",
-    "morgan": "^1.6.0",
-    "request": "^2.58.0",
     "entipic.core": "^0.0.1",
     "entipic.data": "^0.0.3",
-    "entipic.url": "^0.0.1"
+    "entipic.url": "^0.0.1",
+    "express": "^4.13.0",
+    "morgan": "^1.6.0",
+    "response-time": "^2.3.1",
+    "urlset": "^0.4.2"
+  },
+  "devDependencies": {
+    "bootstrap": "^3.3.5",
+    "del": "^1.2.0",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-imagemin": "^2.3.0",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-uglify": "^1.2.0"
   }
 }
