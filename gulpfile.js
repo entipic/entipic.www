@@ -14,7 +14,7 @@ var paths = {
 		'node_modules/bootstrap/js/tooltip.js',
 		'node_modules/bootstrap/js/modal.js'
 	],
-	images: ['assets/img']
+	images: ['lib/assets/img/*.{gif,jpg,png,svg}']
 };
 
 // Not all tasks need to use streams
@@ -24,7 +24,7 @@ gulp.task('clean', function(cb) {
 	del(['lib/public/assets'], cb);
 });
 
-gulp.task('scripts', ['clean']function() {
+gulp.task('scripts', ['clean'], function() {
 	// Minify and copy all JavaScript (except vendor scripts)
 	// with sourcemaps all the way down
 	return gulp.src(paths.scripts)
