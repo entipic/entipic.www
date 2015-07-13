@@ -27,7 +27,7 @@
     "dotenv": "^1.2.0",
     "entipic.core": "^0.0.1",
     "entipic.data": "^0.0.3",
-    "entipic.url": "^0.0.1",
+    "entipic.url": "^0.0.2",
     "express": "^4.13.0",
     "jade": "^1.11.0",
     "method-override": "^2.3.3",

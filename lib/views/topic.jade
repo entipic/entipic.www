@@ -1,0 +1,11 @@
+extends layouts/root
+
+block content
+  .row
+    .col.sm-12.col-md-3
+      img(src=entipicUrl.picture(topic.pictureId, 'd'), alt=topic.name)
+    .col-sm-12.col-md-9
+      h1= topic.name
+      //- if (topic.englishWikiDescription)
+      p= topic.englishWikiDescription
+      br
