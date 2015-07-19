@@ -1,0 +1,76 @@
+extends layouts/root
+
+block content
+  .row
+    .col.xs-12.col-sm-3
+      
+
+    .col-xs-12.col-sm-9
+      h3#what-is-topicpicture What is Entipic.com?
+      p
+        | Entipic.com is a service offering every subject/topic (i.e., Google, Barack Obama, Paris, etc.) a representative image that can be freely used by any application.
+      p
+        | The idea of the service is quite simple and can be easily understood by taking as an example the service provided by 
+        a(href='http://www.gravatar.com', target='_blank') Gravatar.com
+        |         So, Gravatar.com offers to every email a picture/avatar, while Entipic.com provides a picture to each subject/topic.
+      p
+        | The Entipic service can be especially used by news websites/blogs in order to associate a representative image to each tag/topic in the news.
+      p
+        | Successful examples in this respect are: 
+        a(href='http://news.ournet.ro/topic/leonard-doroftei') Leonard Doroftei
+        | , 
+        a(href='http://news.ournet.ro/topic/apple') Apple
+        | , 
+        a(href='http://news.zborg.ru/topic/beyonce') Beyonce
+        | .
+      h3#how-to-use How do I use the Entipic service?
+      p
+        | To associate an image to a news topic on your site you must complete the following address: 
+        code http://cdn.entipic.com/[culture]/[size]_[topic].jpg
+        | .
+      div
+        | Where:
+        ul
+          li
+            b [culture]
+            |  - is the country code (2 characters) where the content is located. So if your site is in France, you should use 
+            code fr
+            |  code.
+          li
+            b [size]
+            |  - is the requested image size. The image size can be: 
+            b b
+            | (100x100 px), 
+            b c
+            |  (150x150 px), 
+            b x
+            |  (25x25 px) or by default (
+            b a
+            |  50x50 px).
+          li
+            b [topic]
+            |  - is the name of the news topic. The news topic can be between 2 (minimum) 50 (maximum) characters. It does not matter how the topic is written; the topics barack-obama, Barack Obama, or Barack_Obama are identical.
+        |         Exemple:
+        ul
+          li
+            code http://cdn.entipic.com/barack-obama.jpg
+            |  - is associating a 50x50 pixel image to Barack Obama news topic.
+          li
+            code http://cdn.entipic.com/c/twitter.jpg
+            |  - is associating a 150x150 pixel image to Twitter topic.
+          li
+            code http://cdn.entipic.com/fr/b/paris.jpg
+            |  - is associating a 50x50 pixel image to Paris (France) topic.
+        b Note.
+        |  Only the [topic] variable is required, however it is a good practice to indicate the context (country code) of the topic, especially when short words are used. Thus, it is recommended to use the country code for all topics.
+      h3#how-it-works How it works?
+      p
+        | For each request the system will return an image associated with the news topic. If the topic is unknown (or new) for the system, it will return a temporary image. Meanwhile, the system will search for the best picture to be associated with the news topic and for the next requests the system will return the found picture.
+      p
+        | To be able to request pictures for new topics in the system one must 
+        a(href='/apps/add') register
+        |  o
+        |         an application and it's clients (web domains).
+      h3#copyrights Copyright
+      p
+        | Entipic respects the copyright of the pictures used by the system. The source of the image is included. The most of the images are taken from Wikipedia.
