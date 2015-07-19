@@ -13,7 +13,6 @@ html(lang='en')
     link(type='text/css', rel='stylesheet', href=links.assets.css.main({v: project.version}))
     if (site.head.canonical)
       link(rel='canonical', href=site.head.canonical)
-
   body
     #fb-root
     #page
@@ -27,7 +26,7 @@ html(lang='en')
                   span.icon-bar
                   span.icon-bar
                   span.icon-bar
-                a.navbar-brand(href='#') Project name
+                a.navbar-brand(href=links.home(), title=project.name)
               #navbar.navbar-collapse.collapse
                 ul.nav.navbar-nav
                   li.active

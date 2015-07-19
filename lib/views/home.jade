@@ -14,9 +14,36 @@ block content
               .media
                 .media-left
                   img.media-object(src=entipicUrl(item.englishWikiName, 'en'))
-                .media-body
-                  &larr; 
+                .media-body &larr; 
                   b
                     a(href=links.topic(item.uniqueName))= item.englishWikiName
+
     .col.sm-12.col-md-4
-      p Aici
+      .panel.panel-default
+        .panel-heading
+          h3.panel-title Stats
+        .panel-body.text-center.stats
+          .row
+            .col-md-12.col-sm-4.col-xs-6
+              .count= countTopics.toLocaleString()
+              .text-muted Topics
+            .col-md-12.col-sm-4.col-xs-6
+              .count= countUniqueNames.toLocaleString()
+              .text-muted Unique names
+            .col-md-12.col-sm-4.col-xs-6
+              .count= countPictures.toLocaleString()
+              .text-muted Pictures
+      .panel.panel-default
+        .panel-heading
+          h3.panel-title Stats (last 7 days)
+        .panel-body.text-center.stats
+          .row
+            .col-md-12.col-sm-4.col-xs-6
+              .count= countTopics7Days.toLocaleString()
+              .text-muted Topics
+            .col-md-12.col-sm-4.col-xs-6
+              .count= countUniqueNames7Days.toLocaleString()
+              .text-muted Unique names
+            .col-md-12.col-sm-4.col-xs-6
+              .count= countPictures7Days.toLocaleString()
+              .text-muted Pictures

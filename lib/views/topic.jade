@@ -2,10 +2,36 @@ extends layouts/root
 
 block content
   .row
-    .col.sm-12.col-md-3
-      img(src=entipicUrl.picture(topic.pictureId, 'd'), alt=topic.name)
-    .col-sm-12.col-md-9
+    .col.xs-12.col-sm-3
+      #picture
+        img(src=entipicUrl.picture(topic.pictureId, 'd'), alt=topic.name)
+
+    .col-xs-12.col-sm-9
       h1= topic.name
       //- if (topic.englishWikiDescription)
       p= topic.englishWikiDescription
-      br
+
+  br
+
+  .row
+    .col.xs-12.col-sm-3
+      h4 Pictures:
+      ul.list.ot-picture
+        each item in pictures
+          li
+            img(src=entipicUrl.picture(item.id), alt=topic.name)
+
+    .col-xs-12.col-sm-9
+      h4 Unique names:
+      ul.list.ot-un
+        each item in uniqueNames
+          li= item.name
+            if (item.isLocal)
+              |  (
+              = item.lang
+              if (item.country)
+                | -
+                = item.country
+              |)
+            div
+              b= item.uniqueName.split('__')[0]
