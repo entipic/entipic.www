@@ -6,4 +6,6 @@ git pull
 #npm install new modules
 npm install
 #restart all processes
-forever restartall
+npm run build
+
+pm2 restart entipic-www
