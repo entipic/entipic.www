@@ -13,37 +13,36 @@ block content
             .col-xs-6.col-sm-4
               .media
                 .media-left
-                  img.media-object(src=entipicUrl(item.englishWikiName, 'en'))
+                  img.media-object(src=entipicUrl.picture(item.pictureId))
                 .media-body &larr; 
                   b
                     a(href=links.topic(item.uniqueName))= item.englishWikiName
 
+      //- p.stats In last 
+      //-   span.count 7 days 
+      //-   | we have explored 
+      //-   span.count= countTopics7Days.toLocaleString()
+      //-   |  topics, 
+      //-   span.count= countUniqueNames7Days.toLocaleString()
+      //-   |  unique names and 
+      //-   span.count= countPictures7Days.toLocaleString()
+      //-   |  pictures.
+      //- br
+      p.stats Entipic knows 
+        span.count= countTopics.toLocaleString()
+        |  topics, 
+        span.count= countUniqueNames.toLocaleString()
+        |  unique names and 
+        span.count= countPictures.toLocaleString()
+        |  pictures.
+
     .col.sm-12.col-md-4
       .panel.panel-default
         .panel-heading
-          h3.panel-title Stats
+          h3.panel-title Latest topics
         .panel-body.text-center.stats
-          .row
-            .col-md-12.col-sm-4.col-xs-6
-              .count= countTopics.toLocaleString()
-              span.text-muted Topics
-            .col-md-12.col-sm-4.col-xs-6
-              .count= countUniqueNames.toLocaleString()
-              span.text-muted Unique names
-            .col-md-12.col-sm-4.col-xs-6
-              .count= countPictures.toLocaleString()
-              span.text-muted Pictures
-      .panel.panel-default
-        .panel-heading
-          h3.panel-title Stats (last 7 days)
-        .panel-body.text-center.stats
-          .row
-            .col-md-12.col-sm-4.col-xs-6
-              .count= countTopics7Days.toLocaleString()
-              span.text-muted Topics
-            .col-md-12.col-sm-4.col-xs-6
-              .count= countUniqueNames7Days.toLocaleString()
-              span.text-muted Unique names
-            .col-md-12.col-sm-4.col-xs-6
-              .count= countPictures7Days.toLocaleString()
-              span.text-muted Pictures
+          ul.list.ot-picture.view-icon
+            each item in latestTopics
+              li
+                a(href=links.topic(item.uniqueName), title=item.name)
+                  img(src=entipicUrl.picture(item.pictureId), alt='')
