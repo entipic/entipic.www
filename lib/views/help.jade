@@ -2,11 +2,11 @@ extends layouts/root
 
 block content
   .row
-    .col.xs-12.col-sm-3
+    .col.xs-12.col-sm-1
       
 
-    .col-xs-12.col-sm-9
-      h3#what-is-topicpicture What is Entipic.com?
+    .col-xs-12.col-sm-10
+      h1#what-is-topicpicture What is Entipic.com?
       p
         | Entipic.com is a service offering every subject/topic (i.e., Google, Barack Obama, Paris, etc.) a representative image that can be freely used by any application.
       p
@@ -26,51 +26,58 @@ block content
       h3#how-to-use How do I use the Entipic service?
       p
         | To associate an image to a news topic on your site you must complete the following address: 
-        code http://cdn.entipic.com/[culture]/[size]_[topic].jpg
+        code http://cdn.entipic.com/[language]-[country]/[size]/[topic].jpg
         | .
       div
         | Where:
         ul
           li
-            b [culture]
+            b [language]
+            |  - is the language code (2 characters).
+          li
+            b [country]
             |  - is the country code (2 characters) where the content is located. So if your site is in France, you should use 
             code fr
             |  code.
           li
             b [size]
             |  - is the requested image size. The image size can be: 
+            b a
+            |   default (50x50 px), 
             b b
-            | (100x100 px), 
+            |  (100x100 px), 
             b c
             |  (150x150 px), 
+            b d
+            |  (200x200 px), 
+            b e
+            |  (250x250 px), 
+            b f
+            |  (300x300 px), 
             b x
-            |  (25x25 px) or by default (
-            b a
-            |  50x50 px).
+            |  (25x25 px).
           li
             b [topic]
-            |  - is the name of the news topic. The news topic can be between 2 (minimum) 50 (maximum) characters. It does not matter how the topic is written; the topics barack-obama, Barack Obama, or Barack_Obama are identical.
+            |  - is the name of the topic. The topic can be between 2 (minimum) 50 (maximum) characters. It does not matter how the topic is written; the topics barack-obama, Barack Obama, or Barack_Obama are identical.
         |         Exemple:
         ul
           li
-            code http://cdn.entipic.com/barack-obama.jpg
-            |  - is associating a 50x50 pixel image to Barack Obama news topic.
+            code http://cdn.entipic.com/en/barack-obama.jpg
+            |  - is associating a 50x50 pixel image to Barack Obama (English) topic.
           li
-            code http://cdn.entipic.com/c/twitter.jpg
+            code http://cdn.entipic.com/en/c/twitter.jpg
             |  - is associating a 150x150 pixel image to Twitter topic.
           li
             code http://cdn.entipic.com/fr/b/paris.jpg
-            |  - is associating a 50x50 pixel image to Paris (France) topic.
+            |  - is associating a 100x100 pixel image to Paris (Franch) topic.
+          li
+            code http://cdn.entipic.com/ro-ro/b/Adrian_Ursu.jpg
+            |  - is associating a 100x100 pixel image to Adrian Ursu (Romania in Romanian language) topic.
         b Note.
-        |  Only the [topic] variable is required, however it is a good practice to indicate the context (country code) of the topic, especially when short words are used. Thus, it is recommended to use the country code for all topics.
+        |  Only the [topic] variable is required, however it is a good practice to indicate the context (language and country code) of the topic, especially when short words are used. Thus, it is recommended to use the language code for all topics.
       h3#how-it-works How it works?
       p
-        | For each request the system will return an image associated with the news topic. If the topic is unknown (or new) for the system, it will return a temporary image. Meanwhile, the system will search for the best picture to be associated with the news topic and for the next requests the system will return the found picture.
-      p
-        | To be able to request pictures for new topics in the system one must 
-        a(href='/apps/add') register
-        |  o
-        |         an application and it's clients (web domains).
-      h3#copyrights Copyright
+        | For each request the system will return an image associated with the news topic. If the topic is unknown (or new) for the system, it will return a temporary image (1x1 pixel). Meanwhile, the system will search for the best picture to be associated with the news topic and for the next requests the system will return the found picture.
+
       p
         | Entipic respects the copyright of the pictures used by the system. The source of the image is included. The most of the images are taken from Wikipedia.

@@ -27,11 +27,11 @@ html(lang='en')
                   span.icon-bar
                   span.icon-bar
                 a.navbar-brand(href=links.home(), title=project.name)
-              //- #navbar.navbar-collapse.collapse
-              //-   ul.nav.navbar-nav
-              //-     li.active
-              //-       a(href='#') Home
-              //-     li
+              #navbar.navbar-collapse.collapse
+                ul.nav.navbar-nav
+                  li(class=(site.currentPage==='help'?'active':null))
+                    a(href='/help') Help
+              //-  li
               //-       a(href='#') About
               //-     li
               //-       a(href='#') Contact
@@ -69,8 +69,8 @@ html(lang='en')
           a(href='https://github.com/entipic', target='_blank') Source Code on Github
 
 
-    script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js')
-    script(type='text/javascript', src=links.assets.js.main({v: project.version}))
+    //- script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js')
+    //- script(type='text/javascript', src=links.assets.js.main({v: project.version}))
     block scripts
     
     script.
