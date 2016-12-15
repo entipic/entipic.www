@@ -9,7 +9,7 @@ block content
     .col-xs-12.col-sm-9
       h1= topic.name
       //- if (topic.englishWikiDescription)
-      p= topic.englishWikiDescription
+      p= topic.description
       p= topic.type
       p= topic.refHost
 
@@ -19,21 +19,18 @@ block content
     .col.xs-12.col-sm-3
       h4 Pictures:
       ul.list.ot-picture
-        each item in pictures
+        each item in topic.pictures
           li
-            img(src=entipicUrl.picture(item.id), alt=topic.name)
+            img(src=entipicUrl.picture(item), alt=topic.name)
 
     .col-xs-12.col-sm-9
       h4 Unique names:
       ul.list.ot-un
         each item in uniqueNames
-          li= item.name
-            if (item.isLocal)
+          li
+            div= item.name
               |  (
-              = item.lang
-              if (item.country)
-                | -
-                = item.country
+              = item.locale
               |)
             div
-              b= item.uniqueName.split('__')[0]
+              b= item.uniqueName
