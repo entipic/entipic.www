@@ -28,16 +28,16 @@
   },
   "homepage": "https://github.com/entipic/entipic.www",
   "dependencies": {
-    "body-parser": "^1.13.1",
-    "dotenv": "^1.2.0",
+    "body-parser": "^1.18.2",
+    "dotenv": "^4.0.0",
     "entipic.core": "^0.0.2",
     "entipic.data": "^0.1.4",
     "entipic.url": "^0.1.0",
-    "express": "^4.13.0",
+    "express": "^4.16.2",
     "jade": "^1.11.0",
-    "method-override": "^2.3.3",
-    "morgan": "^1.6.0",
-    "response-time": "^2.3.1",
+    "method-override": "^2.3.10",
+    "morgan": "^1.9.0",
+    "response-time": "^2.3.2",
     "urlset": "^0.4.2"
   },
   "devDependencies": {
