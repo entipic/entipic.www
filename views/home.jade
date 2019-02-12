@@ -16,7 +16,7 @@ block content
                   img.media-object(src=entipicUrl(item.name, item.lang))
                 .media-body &larr; 
                   b
-                    a(href=links.topic(item.uniqueName))= item.name
+                    a(href=links.topic(item.slug))= item.name
 
       //- p.stats In last 
       //-   span.count 7 days 
@@ -44,5 +44,5 @@ block content
           ul.list.ot-picture.view-icon
             each item in latestTopics
               li
-                a(href=links.topic(item.uniqueName), title=item.name)
+                a(href=links.topic(item.slug), title=item.name)
                   img(src=entipicUrl.picture(item.pictureId), alt='')

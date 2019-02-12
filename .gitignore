@@ -3,8 +3,12 @@
 #
 
 .DS_Store
-.env
+.env*
 node_modules
 npm-debug.log
 *.tgz
-lib/public/assets
+lib
+types
+*.log
+
+public/assets

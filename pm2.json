@@ -1,5 +1,5 @@
 {
-  "script"    : "index.js",
+  "script"    : "./lib/app.js",
   "name"      : "entipic-www",
   "max_memory_restart" : "200M"
 }

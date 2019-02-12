@@ -1,16 +1,37 @@
 {
   "name": "entipic.www",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "entipic website: www.entipic.com",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "exit 0",
-    "lint": "eslint .",
-    "start": "node index.js",
-    "build": "./node_modules/gulp/bin/gulp.js"
+    "start": "node ./lib/app.js",
+    "dev": "npm run tsc && node ./lib/app.js",
+    "pretest": "npm run clean && npm run tsc",
+    "test": "ava --no-cache --verbose  ./lib/*.test.js ./lib/**/*.test.js",
+    "posttest": "npm run clean-test-code",
+    "tsc": "tsc",
+    "tscw": "tsc -w",
+    "preversion": "npm run tsc",
+    "postversion": "git push --follow-tags",
+    "prepublish": "npm run tsc && npm run clean-test-code",
+    "clean": "rimraf ./lib",
+    "clean-test-code": "rimraf ./lib/**/*.test.js && rimraf ./lib/*.test.js",
+    "watch": "npm-watch start",
+    "build": "gulp"
+  },
+  "watch": {
+    "start": {
+      "patterns": [
+        "lib"
+      ],
+      "extensions": "js",
+      "quiet": true,
+      "legacyWatch": true,
+      "delay": 2000
+    }
   },
   "engines": {
-    "node": ">=4.0.0"
+    "node": ">=8.0.0"
   },
   "repository": {
     "type": "git",
@@ -28,19 +49,22 @@
   },
   "homepage": "https://github.com/entipic/entipic.www",
   "dependencies": {
+    "@entipic/data": "~1.x.x",
+    "@entipic/domain": "~1.x.x",
     "body-parser": "^1.18.2",
     "dotenv": "^4.0.0",
     "entipic.core": "^0.0.2",
     "entipic.data": "^0.1.4",
     "entipic.url": "^0.1.0",
-    "express": "^4.16.2",
+    "express": "^4.16.4",
     "jade": "^1.11.0",
-    "method-override": "^2.3.10",
-    "morgan": "^1.9.0",
-    "response-time": "^2.3.2",
+    "mongodb": "^3.1.13",
     "urlset": "^0.4.2"
   },
   "devDependencies": {
+    "@types/express": "^4.16.0",
+    "@types/mongodb": "^3.1.19",
+    "@types/node": "^10.12.7",
     "bootstrap": "^3.3.5",
     "del": "^1.2.0",
     "gulp": "^3.9.0",
@@ -50,6 +74,9 @@
     "gulp-less": "^3.0.3",
     "gulp-minify-css": "^1.2.0",
     "gulp-sourcemaps": "^1.5.2",
-    "gulp-uglify": "^1.2.0"
+    "gulp-uglify": "^1.2.0",
+    "npm-watch": "^0.4.0",
+    "rimraf": "^2.6.2",
+    "typescript": "3.1.6"
   }
 }

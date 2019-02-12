@@ -19,18 +19,18 @@ block content
     .col.xs-12.col-sm-3
       h4 Pictures:
       ul.list.ot-picture
-        each item in topic.pictures
+        each item in topic.picturesIds
           li
             img(src=entipicUrl.picture(item), alt=topic.name)
 
     .col-xs-12.col-sm-9
-      h4 Unique names:
-      ul.list.ot-un
-        each item in uniqueNames
-          li
-            div= item.name
-              |  (
-              = item.locale
-              |)
-            div
-              b= item.uniqueName
+      //- h4 Unique names:
+      //- ul.list.ot-un
+      //-   each item in uniqueNames
+      //-     li
+      //-       div= item.name
+      //-         |  (
+      //-         = item.locale
+      //-         |)
+      //-       div
+      //-         b= item.uniqueName

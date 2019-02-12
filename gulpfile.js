@@ -16,15 +16,15 @@ var paths = {
 		'node_modules/bootstrap/js/tooltip.js',
 		'node_modules/bootstrap/js/modal.js'
 	],
-	images: ['lib/assets/img/*.{gif,jpg,png,svg}'],
-	styles: ['lib/assets/less/main.less']
+	images: ['assets/img/*.{gif,jpg,png,svg}'],
+	styles: ['assets/less/main.less']
 };
 
 // Not all tasks need to use streams
 // A gulpfile is just another node program and you can use all packages available on npm
 gulp.task('clean', function(cb) {
 	// You can use multiple globbing patterns as you would with `gulp.src`
-	del(['lib/public/assets'], cb);
+	del(['public/assets'], cb);
 });
 
 gulp.task('scripts', ['clean'], function() {
@@ -35,7 +35,7 @@ gulp.task('scripts', ['clean'], function() {
 		.pipe(uglify())
 		.pipe(concat('main.min.js'))
 		.pipe(sourcemaps.write())
-		.pipe(gulp.dest('lib/public/assets/js'));
+		.pipe(gulp.dest('public/assets/js'));
 });
 
 gulp.task('styles', ['clean'], function() {
@@ -45,7 +45,7 @@ gulp.task('styles', ['clean'], function() {
 		}))
 		.pipe(concat('main.min.css'))
 		.pipe(cssmin())
-		.pipe(gulp.dest('lib/public/assets/css'));
+		.pipe(gulp.dest('public/assets/css'));
 });
 
 // Copy all static images
@@ -55,7 +55,7 @@ gulp.task('images', ['clean'], function() {
 		.pipe(imagemin({
 			optimizationLevel: 5
 		}))
-		.pipe(gulp.dest('lib/public/assets/img'));
+		.pipe(gulp.dest('public/assets/img'));
 });
 
 // The default task (called when you run `gulp` from cli)

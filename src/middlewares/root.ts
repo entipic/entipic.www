@@ -1,19 +1,15 @@
-'use strict';
 
+import { Request, Response, NextFunction } from 'express';
+import config from '../config';
+import { maxage } from '../utils';
 var packageInfo = require('../../package.json');
-var core = require('entipic.core');
 var entipicUrl = require('entipic.url');
-var utils = require('../utils.js');
-var config = require('../config.js');
-var util = {
-	// moment: require('moment'),
-	format: require('util').format,
-	startWithUpperCase: core.util.startWithUpperCase,
-	numberFormat: core.util.numberFormat,
-	wrapAt: core.text.wrapAt
-};
 
-module.exports = function(req, res, next) {
+var util = {
+	format: require('util').format,
+}
+
+export default function (_req: Request, res: Response, next: NextFunction) {
 
 	res.locals.util = util;
 	res.locals.entipicUrl = entipicUrl;
@@ -29,7 +25,7 @@ module.exports = function(req, res, next) {
 		name: config.name
 	};
 
-	utils.maxage(res, 60);
+	maxage(res, 60);
 
 	next();
-};
+}
