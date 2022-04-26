@@ -49,19 +49,19 @@
   dependencies:
     arrify "^1.0.1"
 
-"@entipic/data@~1.x.x":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@entipic/data/-/data-1.2.0.tgz#953347aa7a432d5c65ecc60da918fb21b5c0a00c"
-  integrity sha512-iSRKJbZkax1Ury/1BpMwjUmDMEYSWwjuvHzquD/8kpqx9bYl4sowwOa0yx1QCf3N6X3ODvqnE2KgsfgfiZdIUg==
+"@entipic/data@~1.2.x":
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/@entipic/data/-/data-1.2.3.tgz#832377b3acbcc1ea79c80845e0ade942f3d82a2c"
+  integrity sha512-OmQTKLxmKqqxfjUybJ7z9txvX+BWFOt4sQBi4oKKdD1+XZ3avT3V4rEgRKm9R2/MH1hYJErZBzamUs0JR8IWsQ==
   dependencies:
-    "@entipic/domain" "~1.x.x"
+    "@entipic/domain" "^1.2.1"
     mongo-item "^0.1.0"
     mongodb "^3.1.13"
 
-"@entipic/domain@~1.x.x":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@entipic/domain/-/domain-1.2.0.tgz#5c8a5e04436edae5ef5593ec9d49b931e2f5d7bc"
-  integrity sha512-yrB78C4sypqAgDYXwFwdKl51ob+aoTsODDzZaifPvLRwYOi3zSNAi+DcQmMV8+lkxdrzmcqbX3VYSUDfixf9zw==
+"@entipic/domain@^1.2.1", "@entipic/domain@~1.2.x":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@entipic/domain/-/domain-1.2.1.tgz#4d54956750239b20da3a9c81307f8c600a73852c"
+  integrity sha512-OpvsKOqG52E6LEZa0fr+zKBfkk8aX+r/OThW1G+IPuC+8dpfWL8vsXNZ2naamjrkuGsN6GL42bMF9UhNjBmCzg==
   dependencies:
     atonic "^1.0.4"
     ava "~0.25.x"
@@ -144,10 +144,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-11.9.0.tgz#35fea17653490dab82e1d5e69731abfdbf13160d"
   integrity sha512-ry4DOrC+xenhQbzk1iIPzCZGhhPGEFv7ia7Iu6XXSLVluiJIe9FfG7Iu3mObH9mpxEXCWLCMU4JWbCCR9Oy1Zg==
 
-"@types/node@^10.12.7":
-  version "10.12.25"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.12.25.tgz#0d01a7dd6127de60d861ece4a650963042abb538"
-  integrity sha512-IcvnGLGSQFDvC07Bz2I8SX+QKErDZbUdiQq7S2u3XyzTyJfUmT0sWJMbeQkMzpTAkO7/N7sZpW/arUM2jfKsbQ==
+"@types/node@^17.0.27":
+  version "17.0.27"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.27.tgz#f4df3981ae8268c066e8f49995639f855469081e"
+  integrity sha512-4/Ke7bbWOasuT3kceBZFGakP1dYN2XFd8v2l9bqF2LNWrmeU07JLpp56aEeG6+Q3olqO5TvXpW0yaiYnZJ5CXg==
 
 "@types/range-parser@*":
   version "1.2.3"
@@ -7064,10 +7064,10 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typescript@3.1.6:
-  version "3.1.6"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.1.6.tgz#b6543a83cfc8c2befb3f4c8fba6896f5b0c9be68"
-  integrity sha512-tDMYfVtvpb96msS1lDX9MEdHrW4yOuZ4Kdc4Him9oU796XldPYF/t2+uKoX0BBa0hXXwDlqYQbXY5Rzjzc5hBA==
+typescript@^4.5.5:
+  version "4.6.3"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.6.3.tgz#eefeafa6afdd31d725584c67a0eaba80f6fc6c6c"
+  integrity sha512-yNIatDa5iaofVozS/uQJEl3JRWLKKGJKh6Yaiv0GLGSuhpFJe7P3SbHZ8/yjAHRQwKRoA6YZqlfjXWmVzoVSMw==
 
 uglify-js@2.6.4:
   version "2.6.4"
