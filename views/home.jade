@@ -13,7 +13,7 @@ block content
             .col-xs-6.col-sm-4
               .media
                 .media-left
-                  img.media-object(src=entipicUrl(item.name, item.lang))
+                  img.media-object(src=entipicUrl(item.name, 'b', item.lang))
                 .media-body &larr; 
                   b
                     a(href=links.topic(item.slug))= item.name
@@ -45,4 +45,4 @@ block content
             each item in latestTopics
               li
                 a(href=links.topic(item.slug), title=item.name)
-                  img(src=entipicUrl.picture(item.pictureId), alt='')
+                  img(src=entipicUrl.picture(item.pictureId, 'b'), alt='')
