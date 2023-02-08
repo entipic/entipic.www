@@ -5,4 +5,4 @@ yarn
 yarn tsc
 yarn build
 
-pm2 restart entipic-www
+pm2 restart ./pm2.json
