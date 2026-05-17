@@ -5,7 +5,8 @@ import { maxage } from "../utils";
 const packageInfo = require("../../package.json");
 const baseEntipicUrl = require("entipic.url");
 
-const toWebp = (url: string) => url.replace(/\.jpg$/, ".webp");
+const normalize = (url: string) =>
+  url.replace(/^http:\/\//i, "https://").replace(/\.jpg$/, ".webp");
 
 const entipicUrl: any = function (
   name: any,
@@ -13,10 +14,10 @@ const entipicUrl: any = function (
   lang?: string,
   country?: string
 ) {
-  return toWebp(baseEntipicUrl(name, size, lang, country));
+  return normalize(baseEntipicUrl(name, size, lang, country));
 };
 entipicUrl.picture = (id: string, size?: string) =>
-  toWebp(baseEntipicUrl.picture(id, size));
+  normalize(baseEntipicUrl.picture(id, size));
 
 const util = {
   format: require("util").format
