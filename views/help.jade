@@ -1,83 +1,65 @@
 extends layouts/root
 
 block content
-  .row
-    .col.xs-12.col-sm-1
-      
+  article.doc
+    header.doc-head
+      p.doc-eyebrow Documentation
+      h1#what-is-entipic What is Entipic?
+    p Entipic is a service offering every subject or topic — Google, Barack Obama, Paris — a representative image that can be freely used by any application.
+    p The idea is simple, and easiest to explain by analogy: #[a(href='https://www.gravatar.com', target='_blank', rel='noopener') Gravatar] gives every email address a picture. Entipic gives every topic a picture.
+    p The service is particularly useful for news sites and blogs that want to associate a representative image with each tag or topic.
 
-    .col-xs-12.col-sm-10
-      h1#what-is-topicpicture What is Entipic.com?
-      p
-        | Entipic.com is a service offering every subject/topic (i.e., Google, Barack Obama, Paris, etc.) a representative image that can be freely used by any application.
-      p
-        | The idea of the service is quite simple and can be easily understood by taking as an example the service provided by 
-        a(href='http://www.gravatar.com', target='_blank') Gravatar.com
-        |         So, Gravatar.com offers to every email a picture/avatar, while Entipic.com provides a picture to each subject/topic.
-      p
-        | The Entipic service can be especially used by news websites/blogs in order to associate a representative image to each tag/topic in the news.
-      p
-        | Successful examples in this respect are: 
-        a(href='http://news.ournet.ro/topic/leonard-doroftei') Leonard Doroftei
-        | , 
-        a(href='http://news.ournet.ro/topic/apple') Apple
-        | , 
-        a(href='http://news.zborg.ru/topic/beyonce') Beyonce
-        | .
-      h3#how-to-use How do I use the Entipic service?
-      p
-        | To associate an image to a news topic on your site you must complete the following address: 
-        code http://cdn.entipic.com/[language]-[country]/[size]/[topic].jpg
-        | .
-      div
-        | Where:
-        ul
-          li
-            b [language]
-            |  - is the language code (2 characters).
-          li
-            b [country]
-            |  - is the country code (2 characters) where the content is located. So if your site is in France, you should use 
-            code fr
-            |  code.
-          li
-            b [size]
-            |  - is the requested image size. The image size can be: 
-            b a
-            |   default (50x50 px), 
-            b b
-            |  (100x100 px), 
-            b c
-            |  (150x150 px), 
-            b d
-            |  (200x200 px), 
-            b e
-            |  (250x250 px), 
-            b f
-            |  (300x300 px), 
-            b x
-            |  (25x25 px).
-          li
-            b [topic]
-            |  - is the name of the topic. The topic can be between 2 (minimum) 50 (maximum) characters. It does not matter how the topic is written; the topics barack-obama, Barack Obama, or Barack_Obama are identical.
-        |         Exemple:
-        ul
-          li
-            code http://cdn.entipic.com/en/barack-obama.jpg
-            |  - is associating a 50x50 pixel image to Barack Obama (English) topic.
-          li
-            code http://cdn.entipic.com/en/c/twitter.jpg
-            |  - is associating a 150x150 pixel image to Twitter topic.
-          li
-            code http://cdn.entipic.com/fr/b/paris.jpg
-            |  - is associating a 100x100 pixel image to Paris (Franch) topic.
-          li
-            code http://cdn.entipic.com/ro-ro/b/Adrian_Ursu.jpg
-            |  - is associating a 100x100 pixel image to Adrian Ursu (Romania in Romanian language) topic.
-        b Note.
-        |  Only the [topic] variable is required, however it is a good practice to indicate the context (language and country code) of the topic, especially when short words are used. Thus, it is recommended to use the language code for all topics.
-      h3#how-it-works How it works?
-      p
-        | For each request the system will return an image associated with the news topic. If the topic is unknown (or new) for the system, it will return a temporary image (1x1 pixel). Meanwhile, the system will search for the best picture to be associated with the news topic and for the next requests the system will return the found picture.
+    h2#how-to-use Using the service
+    p To attach an image to a topic, build a URL in this format:
+    pre.code-block
+      code http://cdn.entipic.com/[language]-[country]/[size]/[topic].jpg
 
-      p
-        | Entipic respects the copyright of the pictures used by the system. The source of the image is included. The most of the images are taken from Wikipedia.
+    dl.params
+      div.param
+        dt
+          code [language]
+        dd Two-letter language code (e.g. en, fr, ro).
+      div.param
+        dt
+          code [country]
+        dd Two-letter country code (e.g. us, fr, ro). Optional but recommended.
+      div.param
+        dt
+          code [size]
+        dd
+          | Requested image size — one of:
+          br
+          span.size-chip #[code a] 50×50
+          span.size-chip #[code b] 100×100
+          span.size-chip #[code c] 150×150
+          span.size-chip #[code d] 200×200
+          span.size-chip #[code e] 250×250
+          span.size-chip #[code f] 300×300
+          span.size-chip #[code x] 25×25
+      div.param
+        dt
+          code [topic]
+        dd The topic name, 2–50 characters. Casing and separators don't matter — #[code barack-obama], #[code Barack Obama] and #[code Barack_Obama] all resolve to the same topic.
+
+    h2#examples Examples
+    ul.examples-list
+      li
+        code http://cdn.entipic.com/en/barack-obama.jpg
+        span 50×50 picture for Barack Obama (English).
+      li
+        code http://cdn.entipic.com/en/c/twitter.jpg
+        span 150×150 picture for Twitter.
+      li
+        code http://cdn.entipic.com/fr/b/paris.jpg
+        span 100×100 picture for Paris (French).
+      li
+        code http://cdn.entipic.com/ro-ro/b/Adrian_Ursu.jpg
+        span 100×100 picture for Adrian Ursu (Romania, Romanian).
+
+    .note
+      strong Note.
+      |  Only #[code [topic]] is required, but providing a language code is strongly recommended, especially for short or ambiguous names.
+
+    h2#how-it-works How it works
+    p For every request the system returns an image associated with the topic. If the topic is unknown, a temporary 1×1 pixel image is returned while the system searches for the best match in the background. Subsequent requests will receive the discovered picture.
+    p Entipic respects image copyright — sources are tracked and attributed, and most images come from Wikipedia.

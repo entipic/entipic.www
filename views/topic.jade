@@ -1,36 +1,24 @@
 extends layouts/root
 
 block content
-  .row
-    .col.xs-12.col-sm-3
-      #picture
-        img(src=entipicUrl.picture(topic.pictureId, 'd'), alt=topic.name, class='img-responsive')
+  article.topic
+    .topic-hero
+      .topic-image
+        img(src=entipicUrl.picture(topic.pictureId, 'f'), srcset=entipicUrl.picture(topic.pictureId, 'd') + ' 200w, ' + entipicUrl.picture(topic.pictureId, 'e') + ' 250w, ' + entipicUrl.picture(topic.pictureId, 'f') + ' 300w', sizes='(max-width: 640px) 200px, 300px', alt=topic.name)
+      .topic-meta
+        h1.topic-title= topic.name
+        .topic-chips
+          if (topic.type)
+            span.chip= topic.type
+          if (topic.refHost)
+            a.chip.chip-link(href='http://' + topic.refHost, target='_blank', rel='noopener')= topic.refHost
+        if (topic.description)
+          p.topic-description= topic.description
 
-    .col-xs-12.col-sm-9
-      h1= topic.name
-      //- if (topic.englishWikiDescription)
-      p= topic.description
-      p= topic.type
-      p= topic.refHost
-
-  br
-
-  .row
-    .col.xs-12.col-sm-3
-      h4 Pictures:
-      ul.list.ot-picture
-        each item in topic.picturesIds
-          li
-            img(src=entipicUrl.picture(item), alt=topic.name)
-
-    .col-xs-12.col-sm-9
-      //- h4 Unique names:
-      //- ul.list.ot-un
-      //-   each item in uniqueNames
-      //-     li
-      //-       div= item.name
-      //-         |  (
-      //-         = item.locale
-      //-         |)
-      //-       div
-      //-         b= item.uniqueName
+    if (topic.picturesIds && topic.picturesIds.length)
+      section.section
+        h2.section-title All pictures
+        ul.gallery
+          each item in topic.picturesIds
+            li.gallery-item
+              img(src=entipicUrl.picture(item, 'c'), alt=topic.name, loading='lazy')

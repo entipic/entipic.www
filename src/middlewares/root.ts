@@ -3,7 +3,20 @@ import config from "../config";
 import { maxage } from "../utils";
 
 const packageInfo = require("../../package.json");
-const entipicUrl = require("entipic.url");
+const baseEntipicUrl = require("entipic.url");
+
+const toWebp = (url: string) => url.replace(/\.jpg$/, ".webp");
+
+const entipicUrl: any = function (
+  name: any,
+  size?: string,
+  lang?: string,
+  country?: string
+) {
+  return toWebp(baseEntipicUrl(name, size, lang, country));
+};
+entipicUrl.picture = (id: string, size?: string) =>
+  toWebp(baseEntipicUrl.picture(id, size));
 
 const util = {
   format: require("util").format
